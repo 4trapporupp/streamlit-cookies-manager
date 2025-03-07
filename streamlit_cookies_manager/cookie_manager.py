@@ -62,6 +62,8 @@ class CookieManager(MutableMapping[str, str]):
                 value=value,
                 expires_at=self._default_expiry.isoformat(),
                 path=self._path,
+                sameSite='Lax',
+                secure=True,
             )
 
     def __delitem__(self, key: str) -> None:
