@@ -56,7 +56,7 @@ class CookieManager(MutableMapping[str, str]):
     def __len__(self):
         return len(self._get_cookies())
 
-    def __setitem__(self, key: str, value: str, domain: str) -> None:
+    def __setitem__(self, key: str, value: str) -> None:
         if self._cookies.get(key) != value:
             self._queue[key] = dict(
                 value=value,
