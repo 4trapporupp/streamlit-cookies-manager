@@ -17,6 +17,7 @@ interface AddCookieSpec {
 interface DeleteCookieSpec {
     value: null
     path: string
+    domain?: string
 }
 
 type CookieSpec = AddCookieSpec | DeleteCookieSpec
