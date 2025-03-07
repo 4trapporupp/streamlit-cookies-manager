@@ -56,7 +56,7 @@ class CookieManager(MutableMapping[str, str]):
     def __len__(self):
         return len(self._get_cookies())
 
-    def __setitem__(self, key: str, value: str) -> None:
+    def __setitem__(self, key: str, value: str, domain: str) -> None:
         if self._cookies.get(key) != value:
             self._queue[key] = dict(
                 value=value,
@@ -64,6 +64,7 @@ class CookieManager(MutableMapping[str, str]):
                 path=self._path,
                 sameSite='Lax',
                 secure=True,
+                domain='localhost',
             )
 
     def __delitem__(self, key: str) -> None:
