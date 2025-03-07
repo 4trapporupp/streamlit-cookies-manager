@@ -69,7 +69,7 @@ class CookieManager(MutableMapping[str, str]):
 
     def __delitem__(self, key: str) -> None:
         if key in self._cookies:
-            self._queue[key] = dict(value=None, path=self._path)
+            self._queue[key] = dict(value=None, path=self._path, domain='localhost')
 
     def _get_cookies(self) -> Mapping[str, str]:
         if self._cookies is None:
